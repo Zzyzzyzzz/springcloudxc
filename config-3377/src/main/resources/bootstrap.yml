@@ -1,6 +1,7 @@
 server:
   port: 3377
 
+# nacos DataId = spring.application.name + spring.profiles.active + .yaml
 spring:
   application:
     name: nacos-config-client
@@ -11,5 +12,5 @@ spring:
       config:
         server-addr: localhost:8848 #配置中心地址
         file-extension: yaml
-        group: DEV_GROUP
-        namespace: 168b9efd-feda-4760-a22a-b9a96de6e276 #命名空间
+        group: DEFAULT_GROUP
+#        namespace: 168b9efd-feda-4760-a22a-b9a96de6e276 #命名空间
