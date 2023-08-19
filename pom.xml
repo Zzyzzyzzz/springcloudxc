@@ -53,5 +53,6 @@
         <module>nacos-9002</module>
         <module>consumer-8083</module>
         <module>config-3377</module>
+        <module>sentinel-service-8401</module>
     </modules>
 </project>

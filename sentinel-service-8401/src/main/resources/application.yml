@@ -1,0 +1,22 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        # 仪表盘地址
+        dashborad: localhost:8080
+        # 端口被占用自动+1
+        port: 8719
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: '*'
