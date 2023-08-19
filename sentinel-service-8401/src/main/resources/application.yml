@@ -11,12 +11,13 @@ spring:
     sentinel:
       transport:
         # 仪表盘地址
-        dashborad: localhost:8080
+        dashboard: localhost:8080
         # 端口被占用自动+1
         port: 8719
+      web-context-unify: false
 
 management:
   endpoint:
     web:
       exposure:
-        include: '*'
+        include: "*"
