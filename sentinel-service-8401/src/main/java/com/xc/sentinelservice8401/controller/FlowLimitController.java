@@ -1,4 +1,4 @@
-package com.xc.sentinelservice8401.Controller;
+package com.xc.sentinelservice8401.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
@@ -26,15 +26,21 @@ public class FlowLimitController {
     }
 
     @GetMapping("/testHotKey")
-    @SentinelResource(value = "/testHotKey", blockHandler = "handleHotKey")
+    @SentinelResource(value = "testHotKey", blockHandler = "handleHotKey")
     public String testHost(@RequestParam("hot1") String hot1,
                            @RequestParam("hot2") String hot2,
                            @RequestParam("hot3") String hot3) {
         return "testHotKey";
     }
 
+    // 处理热点规则异常返回
+    public String handleHotKey(String hot1, String hot2, String hot3, BlockException e) {
+        return "系统繁忙";
+    }
+
+    // 限流、熔断异常
     @GetMapping("/testHotKey2")
-    @SentinelResource(value = "/testHotKey2",
+    @SentinelResource(value = "testHotKey2",
             blockHandlerClass = CustomerBlockHandler.class,
             blockHandler = "handler1")
     public String testHost2(@RequestParam("hot1") String hot1,
@@ -43,8 +49,14 @@ public class FlowLimitController {
         return "testHotKey";
     }
 
-    // 处理热点规则异常返回
-    public String handleHotKey(String hot1, String hot2, String hot3, BlockException e) {
-        return "系统繁忙";
+    // 程序异常
+    @GetMapping("/fallback")
+    @SentinelResource(value = "fallback",
+            fallbackClass = CustomerBlockHandler.class,
+            fallback = "handler2",
+            exceptionsToIgnore = {NullPointerException.class})
+    public String fallback(@RequestParam("fallback") String value) {
+        return "fallback";
     }
+
 }
