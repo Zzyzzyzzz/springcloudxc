@@ -14,4 +14,12 @@ public class DemoController {
     public String getServerPort(){
         return serverPort;
     }
+    @GetMapping("/xc1")
+    public String getServerPort1(){
+        return serverPort;
+    }
+    @GetMapping("/xc/port")
+    public String getServerPort2(){
+        return serverPort;
+    }
 }

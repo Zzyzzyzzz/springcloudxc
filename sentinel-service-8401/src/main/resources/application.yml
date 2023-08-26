@@ -15,6 +15,13 @@ spring:
         # 端口被占用自动+1
         port: 8719
       web-context-unify: false
+      datasource:
+        nacos:
+          nacos:
+            serverAddr: localhost:8848
+            groupId: DEFAULT_GROUP
+            dataId: xx.json
+            ruleType: flow
 
 management:
   endpoint:

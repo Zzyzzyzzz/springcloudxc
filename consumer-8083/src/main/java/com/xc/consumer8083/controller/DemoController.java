@@ -16,7 +16,8 @@ public class DemoController {
     private String url;
 
     @GetMapping("/consumer/nacos")
-    public String getDiscovery(){
-        return restTemplate.getForObject(url + "/xc", String.class);
+    public String getDiscovery() throws Exception {
+        Thread.sleep(2000);
+        return restTemplate.getForObject(url + "/config/info", String.class);
     }
 }

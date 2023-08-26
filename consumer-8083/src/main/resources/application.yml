@@ -4,9 +4,10 @@ spring:
   application:
     name: nacos-consumer
   cloud:
-    discovery:
-      server-addr: localhost:8848
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
 # 微服务提供者的名称
 service-url:
-  nacos-user-service: http://nacos-provider
+  nacos-user-service: http://nacos-config-client

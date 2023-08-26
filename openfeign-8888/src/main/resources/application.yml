@@ -13,3 +13,14 @@ management:
     web:
       exposure:
         include: '*'
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+logging:
+  level:
+    com:
+      xc:
+        openfeign8888:
+          service: debug
