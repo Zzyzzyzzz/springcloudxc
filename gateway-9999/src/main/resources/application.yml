@@ -16,3 +16,4 @@ spring:
           uri: lb://nacos-provider
           predicates:
             - Path=/xc/**
+            - After=2023-08-26T14:26:42.052+08:00[Asia/Shanghai]
